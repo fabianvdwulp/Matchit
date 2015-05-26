@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Match it</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="nav_drawer_items">
+        <item>Projecten</item>
+        <item>Producten</item>
+        <item>Offertes</item>
+        <item>Facturen</item>
+        <item>Klanten</item>
+        <item>Opnamelijst</item>
+    </string-array>
+
+    <array name="nav_drawer_icons">
+        <item>@drawable/icon_projecten</item>
+        <item>@drawable/icon_products</item>
+        <item>@drawable/icon_offerte</item>
+        <item>@drawable/icon_facturen</item>
+        <item>@drawable/icon_user</item>
+        <item>@drawable/icon_meerwerk</item>
+    </array>
+
+    <string name="pasje_welkom">Scan uw pasje</string>
+    <string name="pasje_ingelogd">Welkom Fabian</string>
+    <string name="pasje_fout">Gebruiker niet herkend</string>
+    <string name="bestellen">Bestellen</string>
+    <string name="bestellen_gelukt">Besteld</string>
+    <string name="bestellen_fout">Mislukt</string>
+    <string name="title_activity_product_bekijken"></string>
+    <string name="title_activity_thema_bekijken">Themas</string>
+
+
+    <string name="get_paths">Laad plattegrond</string>
+    <string name="title_activity_activity_login">ActivityLogin</string>
+
+
+</resources>

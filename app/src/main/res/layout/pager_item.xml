@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="De Hedera staat bekend als Klimop. De gestokte Hedera wordt gebruikt als klimmer in gaas-, houten schutting of muren. Ook kan deze Hedera door zijn lange ranken gebruikt worden als bodembedekker. De klimop groeit snel en is zelfhechtend."
+        android:id="@+id/textView7"
+        android:textColor="@color/black"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hedera kant en klaar haag is een product van Mobilane. Dit product staat bekend om zijn grote dichtheid en goede doorgroei. Deze haag wordt gekweekt in een biologische afbreekbare pot. Hierdoor kunt u deze kant en klaar haag compleet plaatsen."
+        android:id="@+id/textView8"
+        android:textColor="@color/black"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignStart="@+id/textView7" />
+
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // Zwart Wit
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    //
+    <color name="dark_grey">#bcbcbc</color>
+    <color name="light_grey">#ededed</color>
+    <color name="drawer_bg">#fff</color>
+    <color name="drawer_bg_hover">#ededed</color>
+    // Blauw
+    <color name="light_blue">#249cd3</color>
+    <color name="dark_blue">#002e79</color>
+    <color name="middle_blue">#0080bb</color>
+    //Groen
+    <color name="green">#849c32</color>
+
+</resources>

@@ -1,0 +1,49 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/scroll"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:id="@+id/Alles"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:id="@+id/tvThemeTitel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thema paarse zomer"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textSize="15dp"
+            android:gravity="center_horizontal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:id="@+id/ivThema"
+            android:src="@drawable/thema_2"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/tvThemeTitel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp" />
+
+
+
+    </RelativeLayout>
+</RelativeLayout>
+</RelativeLayout>
+

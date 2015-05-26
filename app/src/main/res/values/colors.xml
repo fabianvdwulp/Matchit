@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // Zwart Wit
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    //
+    <color name="dark_grey">#bcbcbc</color>
+    <color name="light_grey">#ededed</color>
+    <color name="drawer_bg">#fff</color>
+    <color name="drawer_bg_hover">#ededed</color>
+    // Blauw
+    <color name="light_blue">#249cd3</color>
+    <color name="dark_blue">#002e79</color>
+    <color name="middle_blue">#0080bb</color>
+    //Groen
+    <color name="green">#849c32</color>
+    <color name="dark_green">#63771d</color>
+    <color name="light_green">#9cb642</color>
+
+    <color name="indicator_1">#55B3C2</color>
+    <color name="indicator_2">#64A4A4</color>
+    <color name="indicator_3">#66D7B9</color>
+    <color name="indicator_4">#FDBC7D</color>
+    <color name="colorPrimary">#607d8b</color>
+    <color name="colorPrimaryDark">#455a64</color>
+    <color name="colorPrimaryLight">#cfd8dc</color>
+    <color name="colorAccent">#ffc107</color>
+
+
+    <color name="bright_pink">#FF007F</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#FF7F00</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="chartreuse">#7FFF00</color>
+    <color name="spring_green">#00FF7F</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="azure">#007FFF</color>
+    <color name="blue">#0000FF</color>
+    <color name="violet">#7F00FF</color>
+    <color name="magenta">#FF00FF</color>
+
+
+</resources>
