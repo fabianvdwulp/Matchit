@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import com.dd.CircularProgressButton;
 
-public class ProductBekijken extends ABaseActivity {
+public class ActivityProductBekijken extends ABaseActivity {
 
     private CircularProgressButton circularButton1;
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="addProductTrue">Adding succeeded</string>
+    <string name="addProductFalse">Adding failed</string>
+    <string name="addShoppingTrue">Adding succeeded</string>
+    <string name="addShoppingFalse">Adding failed</string>
+    <string name="chooseAmount">Choose an amount...</string>
+    <string name="addOrderFalse">Sending order failed...</string>
+    <string name="addOrderTrue">Order is send...</string>
+    <string name="deleteOrderFalse">Deleting product failed...</string>
+    <string name="deleteOrderTrue">Deleting product succeeded...</string>
+    <string name="passwordFalse">Oops, wrong username or password...</string>
+    <string name="passwordTrue">You are logged in...</string>
+
+</resources>

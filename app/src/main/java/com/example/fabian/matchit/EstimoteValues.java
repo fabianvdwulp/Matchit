@@ -9,7 +9,7 @@ import com.estimote.sdk.EstimoteSDK;
  *
  * @author wiktor@estimote.com (Wiktor Gworek)
  */
-public class DemosApplication extends Application {
+public class EstimoteValues extends Application {
 
   @Override
   public void onCreate() {

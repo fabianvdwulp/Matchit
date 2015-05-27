@@ -12,9 +12,9 @@ public abstract class GlobalVariables {
     public static String BearerMatch                = "";
     public static String LANGUAGE                   = "";
     ////// URL
-    public static final String URL_MATCH            = "http://web02.nextrelease.match-online.nl/api";
+    public static final String URL_MATCH            = "http://web03.nextrelease.match-online.nl/api";
+    public static String URL_MATCH_Token            = "http://web03.nextrelease.match-online.nl/Token";
     public static final String URL_FABIAN            = "http://www.fabianvanderwulp.nl";
-    public static String URL_MATCH_Token            = "http://web02.nextrelease.match-online.nl/Token";
     public static String URL_CATEGORIES             = URL_MATCH + "/Category";
     public static String URL_BARCODE                = URL_MATCH + "/Barcode?";
     public static String URL_PRODUCTS               = URL_MATCH + "/Product/Page?CategoryId=";

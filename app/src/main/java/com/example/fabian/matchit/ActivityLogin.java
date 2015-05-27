@@ -7,21 +7,21 @@ import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.tech.NfcF;
+import android.os.AsyncTask;
 import android.os.Parcelable;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
-import com.estimote.sdk.Beacon;
-import com.estimote.sdk.BeaconManager;
-import com.estimote.sdk.Region;
 import com.skyfishjy.library.RippleBackground;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -37,6 +37,12 @@ public class ActivityLogin extends ABaseActivity {
     private PendingIntent mPendingIntent;
     private IntentFilter[] mIntentFilters;
     private String[][] mNFCTechLists;
+    String nfcData = null;
+
+    // Inloggen
+    private JSONObject joInloggen;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +57,6 @@ public class ActivityLogin extends ABaseActivity {
 
 
         // NFC
-
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         if (mNfcAdapter != null) {
@@ -75,13 +80,10 @@ public class ActivityLogin extends ABaseActivity {
 
         mNFCTechLists = new String[][] { new String[] { NfcF.class.getName() } };
 
-
     }
 
     @Override
     public void onNewIntent(Intent intent) {
-
-        String s = null;
 
         // parse through all NDEF messages and their records and pick text type only
         Parcelable[] data = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
@@ -96,7 +98,7 @@ public class ActivityLogin extends ABaseActivity {
                             String textEncoding = ((payload[0] & 0200) == 0) ? "UTF-8" : "UTF-16";
                             int langCodeLen = payload[0] & 0077;
 
-                            s = new String(payload, langCodeLen + 1, payload.length - langCodeLen - 1,
+                            nfcData = new String(payload, langCodeLen + 1, payload.length - langCodeLen - 1,
                                     textEncoding);
                         }
                     }
@@ -105,14 +107,64 @@ public class ActivityLogin extends ABaseActivity {
                 Log.e("TagDispatch", e.toString());
             }
         }
-        Log.i("s", s);
+        Log.i("pasjedata", nfcData);
+
+        new postLogin().execute();
+
+    }
+
+    private class postLogin extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            circularButton1.setProgress(50);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            Log.i("token", GlobalVariables.URL_MATCH_Token);
+            try {
+                joInloggen = JSONURLApiLogin.getJSONfromURL(GlobalVariables.URL_MATCH_Token, URLEncoder.encode(nfcData, "UTF-8"), URLEncoder.encode("aron", "UTF-8"));
+
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void args) {
+            Login();
+        }
+    }
 
 
-        if(!GlobalVariables.INGELOGD) {
-            if (s.equals("fabian")) {
-                GlobalVariables.INGELOGD = true;
+    private boolean checkLoginError(){
 
-                circularButton1 = (CircularProgressButton) findViewById(R.id.btnProgress);
+        try {
+            String stError = joInloggen.getString("error");
+            return true;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    public void Login(){
+
+        boolean checkLoginError = checkLoginError();
+        if(checkLoginError == true){
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.passwordFalse), Toast.LENGTH_SHORT).show();
+            circularButton1.setProgress(0);
+        }else{
+            // Inloggen = true
+            GlobalVariables.INGELOGD = true;
+
+            try {
+                GlobalVariables.BearerMatch = joInloggen.getString("access_token");
                 circularButton1.setProgress(100);
 
                 // Omslachtige manier om volgende page te starten. Moet van Android
@@ -120,9 +172,12 @@ public class ActivityLogin extends ABaseActivity {
                 timer = new Timer(); // At this line a new Thread will be created
                 timer.schedule(new SwitchPageTask(), 1300);
 
-            } else {
-
+                Log.i("bearer", GlobalVariables.BearerMatch);
+            } catch (JSONException er) {
+                er.printStackTrace();
             }
+
+
         }
     }
 
@@ -134,7 +189,7 @@ public class ActivityLogin extends ABaseActivity {
 
             runOnUiThread(new Runnable() {
                 public void run() {
-                    Intent intent = new Intent(ActivityLogin.this, MainActivity.class);
+                    Intent intent = new Intent(ActivityLogin.this, ActivityProductScannen.class);
                     startActivity(intent);
                 }
             });

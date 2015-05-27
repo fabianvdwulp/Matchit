@@ -2,10 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/ABaseActivity.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/DemosApplication.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/EstimoteValues.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/FragmentDrawer.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/FragmentTabsProduct.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/GlobalVariables.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/JSONURLApiLogin.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/JSONURLArrayGET.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/JSONURLObjectGET.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/fabian/matchit/NavDrawerItem.java" charset="windows-1252" />
@@ -27,6 +28,8 @@
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/listview_one_word.xml" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/navigation_drawer.xml" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/pager_item.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/values/strings_dialog.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/values/strings_toast.xml" charset="windows-1252" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

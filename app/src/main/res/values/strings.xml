@@ -5,12 +5,8 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="nav_drawer_items">
-        <item>Projecten</item>
-        <item>Producten</item>
-        <item>Offertes</item>
-        <item>Facturen</item>
-        <item>Klanten</item>
-        <item>Opnamelijst</item>
+        <item>Inloggen</item>
+        <item>Themas</item>
     </string-array>
 
     <array name="nav_drawer_icons">

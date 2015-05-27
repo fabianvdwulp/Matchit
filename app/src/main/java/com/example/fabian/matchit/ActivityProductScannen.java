@@ -11,7 +11,6 @@ import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.tech.NfcF;
-import android.os.AsyncTask;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.support.v13.app.FragmentStatePagerAdapter;
@@ -30,21 +29,16 @@ import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 import com.skyfishjy.library.RippleBackground;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Timer;
 import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 
 
-public class MainActivity extends ABaseActivity {
+public class ActivityProductScannen extends ABaseActivity {
 
     // ibeacons
     private static final int REQUEST_ENABLE_BT = 1234;
@@ -112,8 +106,6 @@ public class MainActivity extends ABaseActivity {
                                     mPager.setCurrentItem(2);
                                 }
 
-                                //Intent intent = new Intent(MainActivity.this, ThemaBekijken.class);
-                                //startActivity(intent);
                             }
                         }
                     }
@@ -178,7 +170,7 @@ public class MainActivity extends ABaseActivity {
             }
         }
 
-        Intent i = new Intent(this, ProductBekijken.class);
+        Intent i = new Intent(this, ActivityProductBekijken.class);
         startActivity(i);
 
     }
@@ -201,10 +193,6 @@ public class MainActivity extends ABaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-
-        if(GlobalVariables.INGELOGD){
-            //mPager.setCurrentItem(1);
-        }
 
         if (mNfcAdapter != null)
             mNfcAdapter.enableForegroundDispatch(this, mPendingIntent, mIntentFilters, mNFCTechLists);
@@ -305,7 +293,7 @@ public class MainActivity extends ABaseActivity {
                 try {
                     beaconManager.startRanging(ALL_ESTIMOTE_BEACONS_REGION);
                 } catch (RemoteException e) {
-                    Toast.makeText(MainActivity.this, "Cannot start ranging, something terrible happened",
+                    Toast.makeText(ActivityProductScannen.this, "Cannot start ranging, something terrible happened",
                             Toast.LENGTH_LONG).show();
                     Log.e(TAG, "Cannot start ranging", e);
                 }

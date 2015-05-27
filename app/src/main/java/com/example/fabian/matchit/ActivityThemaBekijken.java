@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.dd.CircularProgressButton;
 
-public class ThemaBekijken extends ABaseActivity {
+public class ActivityThemaBekijken extends ABaseActivity {
 
     private CircularProgressButton circularButton1;
 

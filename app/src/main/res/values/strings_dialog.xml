@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="getCategorien">Loading categories...</string>
+    <string name="getProducten">Loading products...</string>
+    <string name="addProduct">Adding product...</string>
+    <string name="getShoppingCart">Loading shopping carts...</string>
+    <string name="getShoppingCartOrders">Loading shoppingcarts...</string>
+    <string name="getShoppingCartOrderById">Loading shoppingcart...</string>
+    <string name="getShoppingCartContent">Loading products...</string>
+    <string name="getOrders">Loading orders...</string>
+    <string name="getOrderline">Loading products...</string>
+    <string name="createOrder">Creating Order...</string>
+    <string name="getDeliveryDates">Loading Delivery Dates...</string>
+    <string name="inloggen">Log-in...</string>
+
+</resources>

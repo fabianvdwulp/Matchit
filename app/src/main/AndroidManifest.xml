@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".ActivityProductScannen"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,20 +30,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProductBekijken"
+            android:name=".ActivityProductBekijken"
             android:label="@string/title_activity_product_bekijken"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".ActivityProductScannen" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".ActivityProductScannen" />
         </activity>
         <activity
-            android:name=".ThemaBekijken"
+            android:name=".ActivityThemaBekijken"
             android:label="@string/title_activity_thema_bekijken"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".ActivityProductScannen" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".ActivityProductScannen" />
         </activity>
         <activity
             android:name=".ActivityLogin"
