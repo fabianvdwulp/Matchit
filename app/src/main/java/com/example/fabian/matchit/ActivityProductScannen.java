@@ -73,11 +73,12 @@ public class ActivityProductScannen extends ABaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_product_scannen);
 
         createToolbar();
         createDrawer();
         createDrawerToggle();
+        getShopping();
 
         rippleBackground =(RippleBackground) findViewById(R.id.content);
         defaultIndicator = (CircleIndicator) findViewById(R.id.indicator_default);
@@ -100,9 +101,12 @@ public class ActivityProductScannen extends ABaseActivity {
                                 Log.i("fs", major);
 
                                 if(major.equals("42056")){
-                                    mPager.setCurrentItem(1);
+                                    mPager.setCurrentItem(0);
                                 }
                                 else if(major.equals("42807")){
+                                    mPager.setCurrentItem(1);
+                                }
+                                else if(major.equals("43721")){
                                     mPager.setCurrentItem(2);
                                 }
 
@@ -170,7 +174,8 @@ public class ActivityProductScannen extends ABaseActivity {
             }
         }
 
-        Intent i = new Intent(this, ActivityProductBekijken.class);
+        Intent i = new Intent(this, ActivityProductSingle.class);
+        i.putExtra("json", s);
         startActivity(i);
 
     }
@@ -213,7 +218,7 @@ public class ActivityProductScannen extends ABaseActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return FragmentMainSlider.create(position);
+            return FragmentThemeSlider.create(position);
         }
 
         @Override
@@ -274,7 +279,6 @@ public class ActivityProductScannen extends ABaseActivity {
 
     // Begin met zoeken van iBeacons
     private void searchBeacons(){
-        //beaconFound = (TextView) findViewById(R.id.beacon_found);
 
         if (!beaconManager.isBluetoothEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);

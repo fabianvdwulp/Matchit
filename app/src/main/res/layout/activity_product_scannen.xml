@@ -149,7 +149,30 @@
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            tools:layout="@layout/navigation_drawer"
+            tools:layout="@layout/drawer_navigation"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rlDrawerShoppingCart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#fff" >
+
+        <fragment
+            android:name="com.example.fabian.matchit.FragmentDrawerShoppingCart"
+            android:id="@+id/frShoppingCart"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/drawer_navigation"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />

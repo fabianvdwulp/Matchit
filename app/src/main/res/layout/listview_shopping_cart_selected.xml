@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/ivProductImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:src="@drawable/bg_no_picture"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/tvCategoryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        android:padding="20dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/ivProductImage"
+        android:layout_toEndOf="@+id/ivProductImage"
+        android:layout_toStartOf="@+id/tvUnits"
+        android:layout_toLeftOf="@+id/tvUnits" />
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="right"
+        android:layout_marginRight="20dp" />
+
+    <TextView
+        android:id="@+id/tvUnits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/tvTotal"
+        android:layout_toStartOf="@+id/tvTotal"
+        android:layout_marginRight="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp" />
+
+
+</RelativeLayout>

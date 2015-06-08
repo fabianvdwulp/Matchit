@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
 
-public class FragmentMainSlider extends Fragment {
+public class FragmentThemeSlider extends Fragment {
 
     public static final String ARG_PAGE = "page";
     private int mPageNumber;
@@ -20,15 +20,15 @@ public class FragmentMainSlider extends Fragment {
     private ImageView ivThema;
     private TextView tvThemaTitel;
 
-    public static FragmentMainSlider create(int pageNumber) {
-        FragmentMainSlider fragment = new FragmentMainSlider();
+    public static FragmentThemeSlider create(int pageNumber) {
+        FragmentThemeSlider fragment = new FragmentThemeSlider();
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public FragmentMainSlider() {
+    public FragmentThemeSlider() {
     }
 
     @Override
@@ -49,19 +49,17 @@ public class FragmentMainSlider extends Fragment {
         switch(mPageNumber){
             case 0:
                 ivThema.setImageResource(R.drawable.thema_1);
-                tvThemaTitel.setText("Vroeg bloeiers");
+                tvThemaTitel.setText("Delightfull garden");
                 break;
             case 1:
                 ivThema.setImageResource(R.drawable.thema_2);
-                tvThemaTitel.setText("Verse Bloemen");
+                tvThemaTitel.setText("Indoor plant of this month");
                 break;
             case 2:
                 ivThema.setImageResource(R.drawable.thema_3);
-                tvThemaTitel.setText("Trouwerijen");
+                tvThemaTitel.setText("Outdoor plant of the month");
                 break;
         }
-
-
 
         return rootView;
     }

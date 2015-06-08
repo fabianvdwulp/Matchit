@@ -42,8 +42,6 @@ public class ActivityLogin extends ABaseActivity {
     // Inloggen
     private JSONObject joInloggen;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,19 +111,20 @@ public class ActivityLogin extends ABaseActivity {
 
     }
 
+    // Checken of gebruiker kan inloggen
     private class postLogin extends AsyncTask<Void, Void, Void> {
-
+        // Doe vooraf
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             circularButton1.setProgress(50);
         }
-
+        // Tijdens
         @Override
         protected Void doInBackground(Void... params) {
             Log.i("token", GlobalVariables.URL_MATCH_Token);
             try {
-                joInloggen = JSONURLApiLogin.getJSONfromURL(GlobalVariables.URL_MATCH_Token, URLEncoder.encode(nfcData, "UTF-8"), URLEncoder.encode("aron", "UTF-8"));
+                joInloggen = JSONURLApiLogin.getJSONfromURL(GlobalVariables.URL_MATCH_Token, URLEncoder.encode("demo", "UTF-8"), URLEncoder.encode("demo123", "UTF-8"));
 
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
@@ -133,30 +132,19 @@ public class ActivityLogin extends ABaseActivity {
 
             return null;
         }
-
+        // Achteraf
         @Override
         protected void onPostExecute(Void args) {
+            // Doe wat met de opgehaalde gegevens
             Login();
-        }
-    }
-
-
-    private boolean checkLoginError(){
-
-        try {
-            String stError = joInloggen.getString("error");
-            return true;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return false;
         }
     }
 
 
     public void Login(){
 
-        boolean checkLoginError = checkLoginError();
-        if(checkLoginError == true){
+        checkLoginError checkLoginError = new checkLoginError(joInloggen);
+        if(checkLoginError.getValue() == true){
             Toast.makeText(getApplicationContext(), getResources().getString(R.string.passwordFalse), Toast.LENGTH_SHORT).show();
             circularButton1.setProgress(0);
         }else{
@@ -170,7 +158,7 @@ public class ActivityLogin extends ABaseActivity {
                 // Omslachtige manier om volgende page te starten. Moet van Android
                 Timer timer = new Timer();
                 timer = new Timer(); // At this line a new Thread will be created
-                timer.schedule(new SwitchPageTask(), 1300);
+                timer.schedule(new SwitchPageTask(), 2000);
 
                 Log.i("bearer", GlobalVariables.BearerMatch);
             } catch (JSONException er) {
@@ -195,7 +183,6 @@ public class ActivityLogin extends ABaseActivity {
             });
         }
     }
-
 
     @Override
     public void onResume() {

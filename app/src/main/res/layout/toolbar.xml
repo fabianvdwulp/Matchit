@@ -8,7 +8,39 @@
     android:background="?attr/colorPrimary"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rlShoppingCar"
+        android:gravity="right">
 
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shopping_cart"
+            android:id="@+id/imageView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:minWidth="30dp"
+            android:id="@+id/tvShoppingCounter"
+            android:background="@drawable/bg_rond_shoppingcard"
+            android:textSize="12dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_alignEnd="@+id/imageView"
+            android:padding="6dp"
+            android:layout_marginRight="20dp"
+            android:text="0" />
+
+    </RelativeLayout>
 
 
 </android.support.v7.widget.Toolbar>

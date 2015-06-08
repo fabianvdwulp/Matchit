@@ -35,4 +35,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile(name:'estimote-sdk-preview', ext:'aar')
     compile 'me.relex:circleindicator:1.1.3@aar'
+    compile 'com.squareup.picasso:picasso:2.3.4'
 }

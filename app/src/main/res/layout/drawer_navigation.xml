@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@color/dark_blue"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/rlHeader">
 
 
         <RelativeLayout
@@ -21,7 +21,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginRight="30dp"
-            android:id="@+id/relativeLayout3">
+            android:id="@+id/headerLinks">
 
 
             <RelativeLayout
@@ -59,8 +59,8 @@
             android:textSize="16dp"
             android:textStyle="bold"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/relativeLayout3"
-            android:layout_toEndOf="@+id/relativeLayout3"
+            android:layout_toRightOf="@+id/headerLinks"
+            android:layout_toEndOf="@+id/headerLinks"
             android:layout_marginTop="40dp" />
 
 
@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/lvNavigationDrawer"
-        android:layout_below="@+id/relativeLayout"
+        android:layout_below="@+id/rlHeader"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:choiceMode="multipleChoice"

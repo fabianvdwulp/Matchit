@@ -1,8 +1,6 @@
 package com.example.fabian.matchit;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 
 import com.dd.CircularProgressButton;
 
@@ -14,7 +12,7 @@ public class ActivityThemaBekijken extends ABaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thema_bekijken);
+        setContentView(R.layout.activity_thema_single);
 
         createToolbar();
 

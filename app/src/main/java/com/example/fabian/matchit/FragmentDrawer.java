@@ -42,7 +42,7 @@ public class FragmentDrawer extends Fragment{
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        v = inflater.inflate(R.layout.navigation_drawer, container, false);
+        v = inflater.inflate(R.layout.drawer_navigation, container, false);
         mDrawerList = (ListView) v.findViewById(R.id.lvNavigationDrawer);
         mDrawerLayout = (DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
 

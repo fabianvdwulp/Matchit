@@ -8,9 +8,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 
 /**
@@ -19,8 +21,8 @@ import android.widget.ListView;
 public abstract class ABaseActivity extends AppCompatActivity{
 
     private ProgressDialog pdListLoading;
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mDrawerToggle;
+    private DrawerLayout mDrawerLayout, mDrawerShoppingCar;
+    private ActionBarDrawerToggle mDrawerToggle, mDrawerToggle2;
     private Toolbar toolbar;
     private ListView mDrawerList;
 
@@ -28,6 +30,21 @@ public abstract class ABaseActivity extends AppCompatActivity{
     protected void createToolbar(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+    }
+
+    protected void getShopping(){
+
+        RelativeLayout rlShoppingCard= (RelativeLayout) findViewById(R.id.rlShoppingCar);
+        mDrawerShoppingCar = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        rlShoppingCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDrawerShoppingCar.openDrawer(Gravity.END);
+            }
+        });
+
 
     }
 
@@ -39,7 +56,6 @@ public abstract class ABaseActivity extends AppCompatActivity{
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,toolbar ,  R.string.hello_world, R.string.hello_world) {
 

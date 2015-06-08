@@ -5,7 +5,7 @@ import android.util.Log;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +14,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class JSONURLObjectGET {
+public class JSONURLObjectPOST {
 
     public static JSONObject getJSONfromURL(String url) {
         InputStream is = null;
@@ -23,13 +23,13 @@ public class JSONURLObjectGET {
 
         try {
             HttpClient httpclient = new DefaultHttpClient();
-            HttpGet httpget = new HttpGet(url);
+            HttpPost httppost = new HttpPost(url);
 
-            httpget.setHeader("Authorization", "Bearer " + GlobalVariables.BearerMatch);
-            httpget.setHeader("Content-type", "application/json");
-            httpget.setHeader("Accept-Language", GlobalVariables.LANGUAGE);
+            httppost.setHeader("Authorization", "Bearer " + GlobalVariables.BearerMatch);
+            httppost.setHeader("Content-type", "application/json");
+            httppost.setHeader("Accept-Language", GlobalVariables.LANGUAGE);
 
-            HttpResponse response = httpclient.execute(httpget);
+            HttpResponse response = httpclient.execute(httppost);
             HttpEntity entity = response.getEntity();
             is = entity.getContent();
 

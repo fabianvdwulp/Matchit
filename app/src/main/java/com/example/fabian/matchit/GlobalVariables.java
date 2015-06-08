@@ -23,7 +23,8 @@ public abstract class GlobalVariables {
     public static String URL_ORDERLINE              = URL_MATCH + "/Orderline";
     public static String URL_ORDERLINE_ID           = URL_MATCH + "/Orderline?OrderId=";
     public static String URL_SUBMIT                 = URL_MATCH + "/Order/Submit";
-    public static String URL_PATHS                  = URL_FABIAN + "/paden.json";
+    public static String URL_SHOPPING                 = URL_MATCH + "/Order";
+
 
     public static String SELECTED_SHOPPING_CART     = "0";
     public static String DELIVERYDETAILSID          = "0";
