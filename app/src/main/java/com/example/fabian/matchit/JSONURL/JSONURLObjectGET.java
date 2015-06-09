@@ -1,6 +1,8 @@
-package com.example.fabian.matchit;
+package com.example.fabian.matchit.JSONURL;
 
 import android.util.Log;
+
+import com.example.fabian.matchit.GlobalVariables;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

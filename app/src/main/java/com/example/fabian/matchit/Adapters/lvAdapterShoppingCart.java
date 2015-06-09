@@ -1,4 +1,4 @@
-package com.example.fabian.matchit;
+package com.example.fabian.matchit.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,12 +8,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.fabian.matchit.GlobalVariables;
+import com.example.fabian.matchit.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class lvAdapterShoppingCartSelected extends BaseAdapter {
+public class lvAdapterShoppingCart extends BaseAdapter {
 
 
     Context context;
@@ -22,8 +24,8 @@ public class lvAdapterShoppingCartSelected extends BaseAdapter {
 
     HashMap<String, String> resultp =       new HashMap<String, String>();
 
-    public lvAdapterShoppingCartSelected(Context context,
-                                         ArrayList<HashMap<String, String>> arraylist) {
+    public lvAdapterShoppingCart(Context context,
+                                 ArrayList<HashMap<String, String>> arraylist) {
         this.context = context;
         data = arraylist;
 

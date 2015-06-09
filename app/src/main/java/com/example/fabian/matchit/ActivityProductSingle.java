@@ -5,45 +5,46 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
-import com.squareup.picasso.Picasso;
+import com.example.fabian.matchit.JSONURL.JSONURLObjectGET;
+import com.example.fabian.matchit.JSONURL.JSONURLObjectPOST;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ActivityProductSingle extends ABaseActivity {
 
     // Layout
-    private CircularProgressButton circularButton1;
-    private TextView tvShoppingCounter, tvProductName, tvTotalPrice, tvAvailable;;
-    private EditText etBuyAmount;
-    private ImageView ivProductImage, ivHeader;
+    private CircularProgressButton      circularButton1;
+    private TextView                    tvShoppingCounter, tvProductName, tvTotalPrice, tvAvailable;;
+    private EditText                    etBuyAmount;
+    private ImageView                   ivProductImage, ivHeader;
 
     // Product
-    private String stCategoryId, stProductId, stProductName, stPictureId, stCurrency = null, stRememberAmount, stCurrencyISO = null, stValue = null, stUnit = null;;
-    private int iPiecesPerUnit, iPiecesAvailable, iLayersPerTrolley, iUnitsPerLayer, iStemsPerBunch;
+    private String                      stCategoryId, stProductId, stProductName, stPictureId, stCurrency = null, stRememberAmount, stCurrencyISO = null, stValue = null, stUnit = null;;
+    private int                         iPiecesPerUnit, iPiecesAvailable, iLayersPerTrolley, iUnitsPerLayer, iStemsPerBunch;
 
     // ProductDetails
-    private HashMap<String, String> hmProducts;
+    private HashMap<String, String>            hmProducts;
     private ArrayList<HashMap<String, String>> FCategoryItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_single);
+
+        createToolbar();
+        getShopping();
 
         Intent in = getIntent();
         String nfcData = in.getStringExtra("json");
@@ -253,7 +254,7 @@ public class ActivityProductSingle extends ABaseActivity {
         @Override
         protected Void doInBackground(Void... params) {
             Log.i("hoi", GlobalVariables.URL_ORDERLINE_ID + GlobalVariables.SELECTED_SHOPPING_CART +"&ProductId="+stProductId+"&Unit=1"+"&Amount="+etBuyAmount.getText().toString());
-            JSONObject joProducts = JSONURLObjectPOST.getJSONfromURL(GlobalVariables.URL_ORDERLINE_ID + GlobalVariables.SELECTED_SHOPPING_CART +"&ProductId="+stProductId+"&Unit=0"+"&Amount="+etBuyAmount.getText().toString());
+            JSONObject joProducts = JSONURLObjectPOST.getJSONfromURL(GlobalVariables.URL_ORDERLINE_ID + GlobalVariables.SELECTED_SHOPPING_CART + "&ProductId=" + stProductId + "&Unit=0" + "&Amount=" + etBuyAmount.getText().toString());
             joToegevoegd = joProducts.optJSONObject("PriceTotal");
             Log.i("joprodgelukt", String.valueOf(joProducts));
             return null;

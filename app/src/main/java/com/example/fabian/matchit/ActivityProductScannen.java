@@ -27,6 +27,7 @@ import com.dd.CircularProgressButton;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
+import com.example.fabian.matchit.Adapters.lvAdapterPath;
 import com.skyfishjy.library.RippleBackground;
 
 import java.util.ArrayList;
@@ -41,33 +42,26 @@ import me.relex.circleindicator.CircleIndicator;
 public class ActivityProductScannen extends ABaseActivity {
 
     // ibeacons
-    private static final int REQUEST_ENABLE_BT = 1234;
-    private static final Region ALL_ESTIMOTE_BEACONS_REGION = new Region("rid", null, null, null);
-    private BeaconManager beaconManager;
+    private static final int                    REQUEST_ENABLE_BT = 1234;
+    private static final Region                 ALL_ESTIMOTE_BEACONS_REGION = new Region("rid", null, null, null);
+    private BeaconManager                       beaconManager;
 
     // NFC
-    public static final String TAG = "NfcDemo";
-    private NfcAdapter mNfcAdapter;
-    private PendingIntent mPendingIntent;
-    private IntentFilter[] mIntentFilters;
-    private String[][] mNFCTechLists;
+    public static final String                  TAG = "NfcDemo";
+    private NfcAdapter                          mNfcAdapter;
+    private PendingIntent                       mPendingIntent;
+    private IntentFilter[]                      mIntentFilters;
+    private String[][]                          mNFCTechLists;
 
     // UI
-    private CircularProgressButton circularButton1;
-    private TextView beaconFound;
-    private ListView lvPaden;
-    private RippleBackground rippleBackground;
-    private CircleIndicator defaultIndicator;
+    private RippleBackground                    rippleBackground;
+    private CircleIndicator                     defaultIndicator;
 
     // Viewpager elements
-    private static final int NUM_PAGES = 3;
-    private ViewPager mPager;
-    private PagerAdapter mPagerAdapter;
+    private static final int                    NUM_PAGES = 3;
+    private ViewPager                           mPager;
+    private PagerAdapter                        mPagerAdapter;
 
-    // JSON
-    private lvAdapterPath FaListProjects;
-    private ArrayList<HashMap<String, String>> FProjectItems;
-    private HashMap<String, String> hmProjects;
 
 
     @Override
@@ -180,21 +174,6 @@ public class ActivityProductScannen extends ABaseActivity {
 
     }
 
-    // Start volgende pager item
-    class SwitchPageTask extends TimerTask {
-
-        @Override
-        public void run() {
-
-            runOnUiThread(new Runnable() {
-                public void run() {
-                    mPager.setCurrentItem(1);
-                    searchBeacons();
-                }
-            });
-        }
-    }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -289,7 +268,6 @@ public class ActivityProductScannen extends ABaseActivity {
     }
 
     private void connectToService() {
-
 
         beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
             @Override

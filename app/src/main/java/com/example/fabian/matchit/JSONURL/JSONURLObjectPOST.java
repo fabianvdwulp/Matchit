@@ -1,31 +1,37 @@
-package com.example.fabian.matchit;
+package com.example.fabian.matchit.JSONURL;
 
 import android.util.Log;
+
+import com.example.fabian.matchit.GlobalVariables;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class JSONURLArrayGET {
+public class JSONURLObjectPOST {
 
-    public static JSONArray getJSONfromURL(String url) {
+    public static JSONObject getJSONfromURL(String url) {
         InputStream is = null;
         String result = "";
-        JSONArray jsonObj = null;
+        JSONObject jsonObj = null;
 
         try {
             HttpClient httpclient = new DefaultHttpClient();
-            HttpGet httpget = new HttpGet(url);
+            HttpPost httppost = new HttpPost(url);
 
-            HttpResponse response = httpclient.execute(httpget);
+            httppost.setHeader("Authorization", "Bearer " + GlobalVariables.BearerMatch);
+            httppost.setHeader("Content-type", "application/json");
+            httppost.setHeader("Accept-Language", GlobalVariables.LANGUAGE);
+
+            HttpResponse response = httpclient.execute(httppost);
             HttpEntity entity = response.getEntity();
             is = entity.getContent();
 
@@ -50,7 +56,7 @@ public class JSONURLArrayGET {
 
         try {
 
-            jsonObj = new JSONArray(result);
+            jsonObj = new JSONObject(result);
         } catch (JSONException e) {
             Log.e("log_tag", "Error parsing data " + e.toString());
         }

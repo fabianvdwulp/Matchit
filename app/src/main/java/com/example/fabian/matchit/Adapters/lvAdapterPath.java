@@ -1,4 +1,4 @@
-package com.example.fabian.matchit;
+package com.example.fabian.matchit.Adapters;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.fabian.matchit.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

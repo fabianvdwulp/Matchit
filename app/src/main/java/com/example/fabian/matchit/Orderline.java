@@ -1,6 +1,9 @@
 package com.example.fabian.matchit;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
+import com.example.fabian.matchit.JSONURL.JSONURLObjectGET;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,7 +17,9 @@ import java.util.List;
 
 public class Orderline {
 
-    private List FListeners = new ArrayList();
+    private List FListeners =                       new ArrayList();
+    static String                                   stTotal, stCurrency;
+
     public synchronized void addReadyEventListener(ReadyListener listener)  {
         FListeners.add(listener);
     }
@@ -32,18 +37,10 @@ public class Orderline {
         }
     }
 
-    ActivityProductScannen FShoppingCartSelected;
-
+    FragmentDrawerShoppingCart FShoppingCartSelected;
     private ArrayList<HashMap<String, String>> alOrders;
     private HashMap<String, String> hmOrders;
     public JSONObject joOrderURL;
-    static String stTotal, stCurrency, stName;
-    private String stEstimatedTrolleys,  stFunction = "";
-    static double                                   dEsitmatedTrolleys;
-
-    public String stFunction(){
-        return stFunction;
-    }
 
     public ArrayList<HashMap<String, String>> getItems()
     {
@@ -54,21 +51,15 @@ public class Orderline {
         return joOrderURL;
     }
 
-    public Orderline(ActivityProductScannen aShoppingCartSelected)
+    public Orderline(FragmentDrawerShoppingCart aShoppingCartSelected)
     {
        FShoppingCartSelected = aShoppingCartSelected;
     }
 
-    public void Get(String function)
+    public void Get()
     {
-        if(function.equals("getOrders")){
-            stFunction = "getOrders";
-        }
-        if(function.equals("getOrderId")){
-            new getOrderId().execute();
-        }
+        new getOrderId().execute();
     }
-
 
     private class getOrderId extends AsyncTask<Void, Void, Void> {
 
@@ -86,10 +77,7 @@ public class Orderline {
             alOrders = new ArrayList<HashMap<String, String>>();
 
             try {
-                joOrderURL = JSONURLObjectGET.getJSONfromURL(GlobalVariables.URL_ORDERS+"/"+GlobalVariables.SELECTED_SHOPPING_CART);
-                stName = joOrderURL.getString("Name");
-                dEsitmatedTrolleys = Double.parseDouble(joOrderURL.getString("EstimatedTrolleys"));
-                stEstimatedTrolleys.format("%.2f", dEsitmatedTrolleys);
+                joOrderURL = JSONURLObjectGET.getJSONfromURL(GlobalVariables.URL_ORDERS + "/" + GlobalVariables.SELECTED_SHOPPING_CART);
                 JSONObject joPriceProducts = joOrderURL.getJSONObject("PriceProducts");
                 stCurrency = joPriceProducts.getString("Currency");
                 stTotal = joPriceProducts.getString("Value");
@@ -111,23 +99,17 @@ public class Orderline {
         @Override
         protected void onPostExecute(Void args)
         {
-            // Check of er wat is misgegaan
-            if(bGelukt == false){
-               // stFunction = "mislukt";
-               // GlobalVariables.SELECTED_SHOPPING_CART = "0";
-               // fireReadyEvent();
-            }else{
                 new getOrderLine().execute();
-            }
         }
     }
+
 
     private class getOrderLine extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //pdMessage(getResources().getString(R.string.getOrderline), true);
+
         }
 
         @Override
@@ -136,7 +118,7 @@ public class Orderline {
             alOrders = new ArrayList<HashMap<String, String>>();
 
             JSONObject joOrderURL = JSONURLObjectGET.getJSONfromURL(GlobalVariables.URL_ORDERLINE_ID + GlobalVariables.SELECTED_SHOPPING_CART);
-
+            Log.i("orderurk", String.valueOf(joOrderURL));
             try {
                 JSONArray jaItems = joOrderURL.getJSONArray("Items");
                 for(int i = 0; i < jaItems.length(); i++){
@@ -145,6 +127,7 @@ public class Orderline {
                     JSONObject joProductLine = joItem.getJSONObject("ProductLine");
                     JSONObject joProduct = joProductLine.getJSONObject("Product");
                     String stId = joItem.getString("Id");
+                    Log.i("prodiud", stId);
                     String stName = joProduct.getString("Name");
                     String stUnits = joItem.getString("Units");
                     JSONArray jaPictureId = joProductLine.getJSONArray("PictureIds");
@@ -170,8 +153,9 @@ public class Orderline {
         @Override
         protected void onPostExecute(Void args)
         {
-            stFunction = "getOrderId";
             fireReadyEvent();
         }
     }
+
 }
+
